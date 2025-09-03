@@ -1,22 +1,24 @@
-/ <script>
-    // Select all squares
-    const squares = document.querySelectorAll(".focus-sq");
+<script>
+const squares = document.querySelectorAll(".square");
+		for(let box of boxes)
+			    box.addEventListener("mouseover", (e) => addBgColor(e));
+      box.addEventListener("mouseout", () => resetColors());
+    }
 
-    squares.forEach((sq) => {
-      // When mouse enters a square
-      sq.addEventListener("mouseenter", () => {
-        squares.forEach((otherSq) => {
-          if (otherSq !== sq) {
-            otherSq.style.backgroundColor = "#6F4E37"; // Coffee
-          }
-        });
-      });
+    function addBgColor(e) {
+      const selectedBoxId = e.target.id;
+      for (let b of boxes) {
+        if (b.id !== selectedBoxId) {
+          b.style.backgroundColor = "#6F4E37"; // Coffee for others
+        } else {
+          b.style.backgroundColor = "#E6E6FA"; // Keep hovered Lavender
+        }
+      }
+    }
 
-      // When mouse leaves, reset all squares to Lavender
-      sq.addEventListener("mouseleave", () => {
-        squares.forEach((otherSq) => {
-          otherSq.style.backgroundColor = "#E6E6FA"; // Lavender
-        });
-      });
-    });
-  </script>
+    function resetColors() {
+      for (let b of boxes) {
+        b.style.backgroundColor = "#E6E6FA"; // Reset all to Lavender
+      }
+    }
+	</script>
