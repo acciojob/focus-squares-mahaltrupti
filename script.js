@@ -1,5 +1,4 @@
 
-        <script>
 
 
             const boxes = document.querySelectorAll(".box")
@@ -34,4 +33,3 @@
        
        
        
-       </script>
