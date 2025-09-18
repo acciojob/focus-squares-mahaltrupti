@@ -1,24 +1,21 @@
-<script>
-    const squares = document.querySelectorAll(".focus-sq");
+const squares = document.querySelectorAll('.square');
 
-    function resetColors() {
-      squares.forEach(sq => sq.style.background = "#E6E6FA");
-    }
-
-    squares.forEach(square => {
-      square.addEventListener("mouseover", () => {
-        resetColors();
-        squares.forEach(other => {
-          if (other !== square) {
-            other.style.background = "#6F4E37"; // Coffee
-          }
+squares.forEach(square => {
+    square.addEventListener('mouseover', () => {
+        squares.forEach(otherSquare => {
+            if (otherSquare.id !== square.id) {
+                otherSquare.style.backgroundColor = '#6F4E37';
+            }
         });
-      });
-
-      square.addEventListener("mouseout", resetColors);
     });
-  </script>
 
+    square.addEventListener('mouseout', () => {
+        squares.forEach(otherSquare => {
+            otherSquare.style.backgroundColor = '#E6E6FA';
+        });
+    });
+});
+  
 
             
        
